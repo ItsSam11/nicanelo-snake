@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-19T08:06:32.701Z",
+  "baselinePrefix": "<local-baseline-prefix>",
+  "candidatePrefix": "<local-candidate-prefix>",
+  "repairPrefix": "<local-repair-prefix>",
+  "repairedShards": [
+    2,
+    6,
+    9
+  ],
+  "splitRepairPrefix": "<local-split-repair-prefix>",
+  "splitRepairShard": 30,
+  "splitRepairParts": 20,
+  "acceptedIncompleteSplitParts": [
+    12
+  ],
+  "candidateModelVersion": "nicanelo-v1.1-value-main-20k-20260918-v1",
+  "integrity": {
+    "groups": 79,
+    "shards": 59,
+    "splitParts": 20,
+    "repairedGroups": 23,
+    "attemptedGames": 6000,
+    "games": 5998,
+    "uniquePairs": 5998,
+    "cohortCounts": {
+      "challenger": 2998,
+      "legacy": 3000
+    },
+    "requiredMarkers": 78,
+    "allRequiredMarkersValid": true,
+    "allCoverageFull": true,
+    "allModelVersionsValid": true,
+    "exclusions": [
+      {
+        "cohort": "challenger",
+        "prefix": "telemetry/raw/gym/<historical-reference-retained-locally>/repairs/run-v3/challenger/part-12",
+        "lane": 4,
+        "seed": 2026094958,
+        "reason": "game-failed: INFO 07:37:54.592349 Snake ID: e23b1c47-680c-417f-8ce0-235bebef1015 URL: http://snork.example.com, Name: \"Snork-Tree\"\nERROR 07:37:55.092859 Error running game: Error getting snake metadata: Snake metadata request to http://nessegrev.example.com failed: Get \"http://nessegrev.example.com\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+      },
+      {
+        "cohort": "challenger",
+        "prefix": "telemetry/raw/gym/<historical-reference-retained-locally>/repairs/run-v3/challenger/part-12",
+        "lane": 5,
+        "seed": 2026094959,
+        "reason": "missing-artifacts: record,summary,observations"
+      }
+    ]
+  },
+  "evaluation": {
+    "subjectName": "Nicanelo",
+    "games": 5998,
+    "cohorts": [
+      {
+        "cohort": "challenger",
+        "games": 2998,
+        "baseline": {
+          "games": 2998,
+          "wins": 8,
+          "draws": 4,
+          "losses": 2986,
+          "winRate": 0.00266844563042028,
+          "scoreRate": 0.00333555703802535
+        },
+        "candidate": {
+          "games": 2998,
+          "wins": 7,
+          "draws": 1,
+          "losses": 2990,
+          "winRate": 0.0023348899266177454,
+          "scoreRate": 0.0025016677785190127
+        },
+        "candidateWinRateDelta": -0.000333555703802535,
+        "candidateWinRateDelta95": {
+          "lower": -0.00286598708410779,
+          "upper": 0.00219887567650272
+        },
+        "gainedWins": 7,
+        "lostWins": 8,
+        "retainedWins": 0,
+        "retainedNonWins": 2983,
+        "candidateLatencyMs": {
+          "samples": 2997,
+          "p50OfGameP95": 72,
+          "p95OfGameP95": 75,
+          "maximum": 103
+        }
+      },
+      {
+        "cohort": "legacy",
+        "games": 3000,
+        "baseline": {
+          "games": 3000,
+          "wins": 154,
+          "draws": 0,
+          "losses": 2846,
+          "winRate": 0.051333333333333335,
+          "scoreRate": 0.051333333333333335
+        },
+        "candidate": {
+          "games": 3000,
+          "wins": 242,
+          "draws": 4,
+          "losses": 2754,
+          "winRate": 0.08066666666666666,
+          "scoreRate": 0.08133333333333333
+        },
+        "candidateWinRateDelta": 0.029333333333333333,
+        "candidateWinRateDelta95": {
+          "lower": 0.016605146021860487,
+          "upper": 0.04206152064480618
+        },
+        "gainedWins": 235,
+        "lostWins": 147,
+        "retainedWins": 7,
+        "retainedNonWins": 2611,
+        "candidateLatencyMs": {
+          "samples": 3000,
+          "p50OfGameP95": 74,
+          "p95OfGameP95": 76,
+          "maximum": 121
+        }
+      }
+    ],
+    "combined": {
+      "cohort": "combined",
+      "games": 5998,
+      "baseline": {
+        "games": 5998,
+        "wins": 162,
+        "draws": 4,
+        "losses": 5832,
+        "winRate": 0.027009003001000332,
+        "scoreRate": 0.027342447482494165
+      },
+      "candidate": {
+        "games": 5998,
+        "wins": 249,
+        "draws": 5,
+        "losses": 5744,
+        "winRate": 0.04151383794598199,
+        "scoreRate": 0.04193064354784928
+      },
+      "candidateWinRateDelta": 0.01450483494498166,
+      "candidateWinRateDelta95": {
+        "lower": 0.008003691673742711,
+        "upper": 0.02100597821622061
+      },
+      "gainedWins": 242,
+      "lostWins": 155,
+      "retainedWins": 7,
+      "retainedNonWins": 5594,
+      "candidateLatencyMs": {
+        "samples": 5997,
+        "p50OfGameP95": 73,
+        "p95OfGameP95": 75,
+        "maximum": 121
+      }
+    }
+  },
+  "publicationNote": "Operational references and artifact hashes are retained locally; numeric results are unchanged."
+}

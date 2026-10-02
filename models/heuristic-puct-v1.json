@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "modelVersion": "heuristic-puct-v1",
+  "createdAt": "2026-09-16T00:00:00.000Z",
+  "evaluationWeights": {
+    "terminalWin": 1000000,
+    "terminalLoss": -1000000,
+    "terminalDraw": 0,
+    "survival": 200,
+    "reachableSpace": 40,
+    "relativeSpace": 45,
+    "territory": 30,
+    "health": 12,
+    "foodAccess": 50,
+    "lengthAdvantage": 35,
+    "mobility": 30,
+    "headToHead": 40,
+    "opponentPressure": 18,
+    "hazardDistance": 12,
+    "wallDistance": 5,
+    "tailAccess": 10,
+    "trapSafety": 55
+  },
+  "policyPrior": {
+    "temperature": 1.15,
+    "weights": {
+      "mobility": 2.2,
+      "foodAccess": 2.5,
+      "headSafety": 3.5,
+      "hazardSafety": 1.5,
+      "wallDistance": 0.5,
+      "contextualAggression": 0,
+      "contextualResourceAcquisition": 0,
+      "contextualHealthManagement": 0,
+      "contextualConservatism": 0
+    }
+  },
+  "opponentPolicy": {
+    "temperature": 1.15,
+    "weights": {
+      "mobility": 2.2,
+      "foodAccess": 2.5,
+      "headSafety": 3.5,
+      "hazardSafety": 1.5,
+      "wallDistance": 0.5,
+      "contextualAggression": 0,
+      "contextualResourceAcquisition": 0,
+      "contextualHealthManagement": 0,
+      "contextualConservatism": 0
+    }
+  },
+  "search": {
+    "puctConstant": 1.25
+  },
+  "training": {
+    "method": "baseline",
+    "corpusDigest": "hand-tuned",
+    "corpusGames": 0,
+    "trainingSamples": 0,
+    "validationSamples": 0,
+    "epochs": 0,
+    "validationSplit": "game-hash-v2",
+    "baselineValidation": null,
+    "candidateValidation": null,
+    "offlineGatePassed": true
+  }
+}

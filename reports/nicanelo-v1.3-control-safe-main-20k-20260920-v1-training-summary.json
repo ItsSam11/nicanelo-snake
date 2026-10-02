@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "nicanelo-v1.3-control-safe-main-20k-20260920-v1",
+  "createdAt": "2026-09-20T10:36:10.763Z",
+  "preparedPrefix": "<local-prepared-prefix>",
+  "preparedManifestDigest": "<artifact-hash-retained-locally>",
+  "corpusDigest": "<artifact-hash-retained-locally>",
+  "featureSetVersion": "offense-food-v2",
+  "corpusGames": 22000,
+  "epochs": 200,
+  "workers": 31,
+  "elapsedMs": 132394.907,
+  "peakRssBytes": 14370119680,
+  "offlineGatePassed": true,
+  "baselineValidation": {
+    "policyNll": 0.7979399116325638,
+    "policyAccuracy": 0.7723401814872606,
+    "opponentPolicyNll": 0.8018118779972295,
+    "opponentPolicyAccuracy": 0.5212153076364414,
+    "opponentPolicyBrier": 0.524439934538481,
+    "valueBrier": 0.5338720039784065
+  },
+  "candidateValidation": {
+    "policyNll": 0.7972578967595341,
+    "policyAccuracy": 0.7724657033226495,
+    "opponentPolicyNll": 0.7881021075631949,
+    "opponentPolicyAccuracy": 0.5180219202461525,
+    "opponentPolicyBrier": 0.5140726724292828,
+    "valueBrier": 0.4757071550851375
+  },
+  "modelDigest": "<artifact-hash-retained-locally>",
+  "publicationNote": "Operational references and artifact hashes are retained locally; numeric results are unchanged."
+}

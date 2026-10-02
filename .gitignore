@@ -1,0 +1,37 @@
+node_modules/
+dist/
+coverage/
+output/
+tmp/
+# Compiled deployments can contain local resource identifiers.
+infra/*.json
+infra/local/
+infra/*.bicepparam
+!infra/*.example.bicepparam
+data/
+models/candidates/
+*.log
+# Local environment and credential files must never be committed.
+.env
+.env.*
+*.env
+*.env.*
+.npmrc
+.netrc
+.git-credentials
+.aws/
+.azure/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+credentials.json
+service-account*.json
+*service_account*.json
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+.DS_Store

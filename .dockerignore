@@ -1,0 +1,32 @@
+# Build contexts contain only the inputs used by Dockerfile and Dockerfile.job.
+# In particular, never upload local telemetry/corpus data to a remote builder.
+*
+!.dockerignore
+!Dockerfile
+!Dockerfile.job
+!package.json
+!package-lock.json
+!tsconfig.json
+!src/
+!src/**
+!test/
+!test/**
+!models/
+models/*
+!models/heuristic-adaptive-control-v1.json
+!infra/zoo/
+!infra/zoo/**
+# Apply these exclusions after all source allowlists.
+**/.env
+**/.env.*
+**/*.env
+**/*.env.*
+**/.npmrc
+**/.netrc
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/credentials.json
+**/service-account*.json
+**/*service_account*.json

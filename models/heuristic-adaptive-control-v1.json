@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 2,
+  "modelVersion": "heuristic-adaptive-control-v1",
+  "createdAt": "2026-09-20T19:00:00.000Z",
+  "evaluationWeights": {
+    "terminalWin": 1000000,
+    "terminalLoss": -1000000,
+    "terminalDraw": 0,
+    "survival": 200,
+    "reachableSpace": 25,
+    "relativeSpace": 25,
+    "territory": 75,
+    "health": 10,
+    "foodAccess": 55,
+    "lengthAdvantage": 25,
+    "mobility": 35,
+    "headToHead": 90,
+    "opponentPressure": 54,
+    "hazardDistance": 10,
+    "wallDistance": 2.5,
+    "tailAccess": 10,
+    "trapSafety": 55
+  },
+  "policyPrior": {
+    "temperature": 1.1,
+    "weights": {
+      "mobility": 1.6,
+      "foodAccess": 2.6,
+      "headSafety": 5,
+      "hazardSafety": 2,
+      "wallDistance": 0,
+      "contextualAggression": 1.5,
+      "contextualResourceAcquisition": 1.1,
+      "contextualHealthManagement": 0.7,
+      "contextualConservatism": 1.2
+    }
+  },
+  "opponentPolicy": {
+    "temperature": 1.15,
+    "weights": {
+      "mobility": 2.2,
+      "foodAccess": 2.5,
+      "headSafety": 3.5,
+      "hazardSafety": 1.5,
+      "wallDistance": 0.5,
+      "contextualAggression": 0.6,
+      "contextualResourceAcquisition": 0.5,
+      "contextualHealthManagement": 0.4,
+      "contextualConservatism": 0.5
+    }
+  },
+  "search": {
+    "puctConstant": 1.15,
+    "valueBias": 0
+  },
+  "training": {
+    "method": "baseline",
+    "featureSetVersion": "adaptive-posture-v4",
+    "corpusDigest": "hand-tuned-adaptive-control-v1",
+    "corpusGames": 0,
+    "trainingSamples": 0,
+    "validationSamples": 0,
+    "epochs": 0,
+    "validationSplit": "game-hash-v2",
+    "baselineValidation": null,
+    "candidateValidation": null,
+    "offlineGatePassed": true
+  }
+}

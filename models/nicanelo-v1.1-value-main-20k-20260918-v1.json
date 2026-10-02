@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 2,
+  "modelVersion": "nicanelo-v1.1-value-main-20k-20260918-v1",
+  "createdAt": "2026-09-19T04:06:17.299Z",
+  "evaluationWeights": {
+    "terminalWin": 1000000,
+    "terminalLoss": -1000000,
+    "terminalDraw": 0,
+    "survival": 121.12343446235718,
+    "reachableSpace": -18.80400752432855,
+    "relativeSpace": -40.914264431508535,
+    "territory": 59.11978334162361,
+    "health": -31.83046126118378,
+    "foodAccess": 36.77080850861724,
+    "lengthAdvantage": 151.4544664101221,
+    "mobility": -19.558840764573265,
+    "headToHead": 54.71702345126521,
+    "opponentPressure": 4.417524259733265,
+    "hazardDistance": -66.87656553764273,
+    "wallDistance": 10.37533606875541,
+    "tailAccess": -43.284319223785545,
+    "trapSafety": 22.019551874077056
+  },
+  "policyPrior": {
+    "temperature": 1.15,
+    "weights": {
+      "mobility": 2.1370323306723455,
+      "foodAccess": 2.4998071013339804,
+      "headSafety": 3.5914306761224286,
+      "hazardSafety": 1.5,
+      "wallDistance": 0.5224537171921215,
+      "contextualAggression": 0,
+      "contextualResourceAcquisition": 0,
+      "contextualHealthManagement": 0,
+      "contextualConservatism": 0
+    }
+  },
+  "opponentPolicy": {
+    "temperature": 1.15,
+    "weights": {
+      "mobility": 1.8129750089689387,
+      "foodAccess": 2.502072652897653,
+      "headSafety": 3.513161361928469,
+      "hazardSafety": 1.5,
+      "wallDistance": 0.7098553797640731,
+      "contextualAggression": -0.0514712873792229,
+      "contextualResourceAcquisition": 0.1601918831143904,
+      "contextualHealthManagement": -0.1405105076680694,
+      "contextualConservatism": -0.07397048906173793
+    }
+  },
+  "search": {
+    "puctConstant": 1.25
+  },
+  "training": {
+    "method": "softmax-gradient",
+    "corpusDigest": "sha256:164175a0a9e8c886537b577f66eb253d2a76525b0e61a93bfb0d2c820a54a619",
+    "corpusGames": 22000,
+    "trainingSamples": 41818556,
+    "validationSamples": 4169429,
+    "policyPriorTrainingSamples": 4600669,
+    "opponentPolicyTrainingSamples": 15794042,
+    "valueTrainingSamples": 21423845,
+    "policyPriorValidationSamples": 462071,
+    "opponentPolicyValidationSamples": 1571059,
+    "valueValidationSamples": 2136299,
+    "epochs": 200,
+    "validationSplit": "selection-manifest-v1",
+    "baselineValidation": {
+      "policyNll": 0.7977744113861707,
+      "policyAccuracy": 0.7760474039703855,
+      "opponentPolicyNll": 0.8022276752569155,
+      "opponentPolicyAccuracy": 0.5170728788670572,
+      "opponentPolicyBrier": 0.5247571654707255,
+      "valueBrier": 0.5258352672571545
+    },
+    "candidateValidation": {
+      "policyNll": 0.7970970752423846,
+      "policyAccuracy": 0.7759565088482073,
+      "opponentPolicyNll": 0.7884595697807454,
+      "opponentPolicyAccuracy": 0.5169844035138083,
+      "opponentPolicyBrier": 0.514343240680521,
+      "valueBrier": 0.2008529011555296
+    },
+    "offlineGatePassed": true
+  }
+}

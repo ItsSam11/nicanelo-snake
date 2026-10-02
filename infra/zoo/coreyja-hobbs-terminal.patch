@@ -1,0 +1,29 @@
+diff --git a/web-axum/src/hobbs.rs b/web-axum/src/hobbs.rs
+index 7893d59..418f081 100644
+--- a/web-axum/src/hobbs.rs
++++ b/web-axum/src/hobbs.rs
+@@ -73,7 +73,7 @@ pub(crate) async fn route_hobbs_move(
+     let name = "hovering-hobbs";
+ 
+     let options: SnakeOptions = SnakeOptions {
+-        network_latency_padding: Duration::from_millis(150),
++        network_latency_padding: Duration::from_millis(350),
+         move_ordering: MoveOrdering::BestFirst,
+     };
+ 
+@@ -177,9 +177,13 @@ pub(crate) async fn route_hobbs_move(
+         spawn_blocking_with_tracing(move || snake.choose_move_inner(initial_return))
+             .await
+             .unwrap();
+ 
+-    let scored_options = scored.first_options_for_snake(my_id).unwrap();
+-    let output = scored_options.first().unwrap().0;
++    // The local rules CLI can issue one final move request after this snake is
++    // already the sole survivor. Minimax has no child in that terminal state,
++    // so return an arbitrary protocol-valid move instead of panicking.
++    let output = scored.first_options_for_snake(my_id)
++        .and_then(|options| options.first().map(|(movement, _)| *movement))
++        .unwrap_or(Move::Up);
+ 
+     {
+         let mut state = state.lock();

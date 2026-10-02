@@ -1,0 +1,48 @@
+ARG TARGETOS
+ARG TARGETARCH
+ARG COREYJA_IMAGE
+
+FROM ${COREYJA_IMAGE} AS coreyja-zoo
+
+FROM golang:1.27-bookworm AS battlesnake-cli
+
+ARG TARGETOS
+ARG TARGETARCH
+
+RUN CGO_ENABLED=0 GOOS="$TARGETOS" GOARCH="$TARGETARCH" \
+  go install github.com/BattlesnakeOfficial/rules/cli/battlesnake@v1.2.3
+
+FROM node:24-bookworm-slim AS build
+
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY tsconfig.json ./
+COPY src ./src
+COPY test ./test
+COPY models ./models
+RUN npm run build
+RUN npm prune --omit=dev
+
+FROM node:24-bookworm-slim AS runtime
+
+ENV NODE_ENV=production
+ENV MODEL_PATH=/app/models/heuristic-adaptive-control-v1.json
+ENV BATTLESNAKE_BINARY=/usr/local/bin/battlesnake
+WORKDIR /app
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
+
+COPY --from=battlesnake-cli /go/bin/battlesnake /usr/local/bin/battlesnake
+COPY --from=coreyja-zoo /app/web-axum /usr/local/bin/coreyja-zoo
+COPY --from=build /app/package.json /app/package-lock.json ./
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/models ./models
+
+USER node
+
+CMD ["node", "dist/src/training/azure-job.js"]

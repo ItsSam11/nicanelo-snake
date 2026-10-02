@@ -1,0 +1,41 @@
+{
+  "name": "elaniin-battlesnake",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A latency-aware Battlesnake for the Elaniin Battlesnake Cup.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "start": "node dist/src/index.js",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "gym": "npm run build && node dist/src/training/batch-tournament.js",
+    "gym:azure-job": "npm run build && node dist/src/training/azure-job.js",
+    "telemetry:organize": "npm run build && node dist/src/training/organize-telemetry.js",
+    "telemetry:rebuild-derived": "npm run build && node dist/src/training/rebuild-derived-data.js",
+    "gym:organize": "npm run build && node dist/src/training/organize-gym.js",
+    "profile:reference": "npm run build && node dist/src/training/create-profile-reference.js",
+    "corpus:prepare": "npm run build && node dist/src/training/prepare-corpus.js",
+    "training:prepare": "npm run build && node dist/src/training/prepare-training-dataset.js",
+    "training:azure-select": "npm run build && node dist/src/training/azure-training-selection.js",
+    "training:azure-prepare": "npm run build && node dist/src/training/azure-prepare-training.js",
+    "training:azure-finalize": "npm run build && node dist/src/training/azure-finalize-training.js",
+    "train:model": "npm run build && node dist/src/training/train-model.js",
+    "train:model:parallel": "npm run build && node dist/src/training/train-prepared-model.js",
+    "train:model:azure": "npm run build && node dist/src/training/azure-train-model.js",
+    "gate:model": "npm run build && node dist/src/training/model-gate.js"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  },
+  "dependencies": {
+    "@azure/identity": "^4.13.3",
+    "@azure/storage-blob": "^12.33.0",
+    "@redis/client": "^6.2.1",
+    "@redis/entraid": "^6.2.1"
+  }
+}

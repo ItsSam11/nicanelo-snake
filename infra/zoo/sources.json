@@ -1,0 +1,23 @@
+{
+  "coreyja": {
+    "repository": "https://github.com/coreyja/battlesnake-rs.git",
+    "commit": "d3a9bed45789f00918ea25df6025ed4e01462ae3",
+    "license": "MIT",
+    "localPatch": "coreyja-hobbs-terminal.patch",
+    "responseReserveMs": 350
+  },
+  "snork": {
+    "repository": "https://github.com/wrenger/snork.git",
+    "commit": "76bec0c9c76b31b209fbeb8e409bb3e4c9133eb2",
+    "license": "MIT",
+    "agent": "Tree",
+    "responseReserveMs": 150
+  },
+  "nessegrev": {
+    "repository": "https://github.com/nettogrof/nessegrev-java-dev.git",
+    "commit": "ebd1981b66256ff8a8477ed2a2ca0f655df60849",
+    "license": "MIT",
+    "agent": "Expert",
+    "responseReserveMs": 250
+  }
+}
